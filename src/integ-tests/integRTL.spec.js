@@ -1,4 +1,4 @@
-import { fireEvent } from '@testing-library/react';
+import { fireEvent, waitForElement } from '@testing-library/react';
 import { renderWithRouter } from './integRTLHeplers';
 
 describe('Sample test', () => {
@@ -15,6 +15,12 @@ describe('Sample test', () => {
         await navigate('/schedule');
         // const alert = await getByText('VodQA 2019 Schedule'); //Works only if it is in the same page
         expect(getByText('VodQA 2019 Schedule')).toBeDefined();
+        fireEvent.click(getByText('Get the Schedule'));
+
+        await waitForElement(() => getByText('some comment'));
+        
+        expect(getByText('some comment')).toBeDefined();
+
     });
 });
 
