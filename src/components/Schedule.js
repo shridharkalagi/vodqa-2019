@@ -3,10 +3,10 @@ import Axios from 'axios';
 
 class Schedule extends React.Component {
     constructor() {
-        super()
+        super();
         this.state = {
             data: ''
-        }
+        };
     }
     render() {
         return (
@@ -21,7 +21,7 @@ class Schedule extends React.Component {
 
                     this.setState(() => ({
                         data: resp.data[0].body
-                    }))
+                    }));
                 }
                 }>Get the Schedule</button>
 
