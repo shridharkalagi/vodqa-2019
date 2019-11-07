@@ -1,7 +1,15 @@
 import { fireEvent, waitForElement } from '@testing-library/react';
 import { renderWithRouter } from './integRTLHeplers';
+import axiosMock from 'axios';
+import mock from './mock.json';
+jest.mock('axios');
 describe('Sample test', () => {
     it('Validate the login Button Text', async () => {
+        // const url = '/shridharkalagi/vodqa-2019/workshops';
+        axiosMock.get.mockResolvedValueOnce({
+            data: mock,
+        });
+
         const {
             history: { navigate },
             getByLabelText, getByText } = renderWithRouter();
@@ -16,11 +24,9 @@ describe('Sample test', () => {
         expect(getByText('VodQA 2019 Schedule')).toBeDefined();
         fireEvent.click(getByText('Get the Current Agenda'));
 
-        await waitForElement(() => getByText('Integration testing Workshop'));
-
-        expect(getByText('Integration testing Workshop')).toBeDefined();
-
+        await waitForElement(() => getByText('abc'));
+        
+        expect(getByText('abc')).toBeDefined();
     });
-
 });
 
