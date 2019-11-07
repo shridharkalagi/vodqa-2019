@@ -1,0 +1,11 @@
+{
+    "workshops": [
+      {
+        "id": 1,
+        "name": "Integration testing"
+      }
+    ],
+    "profile": {
+      "name": "typicode"
+    }
+  }
