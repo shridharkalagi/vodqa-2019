@@ -16,14 +16,14 @@ class Schedule extends React.Component {
 
                 <button id='submit' onClick={async (event) => {
                     event.preventDefault();
-                    const resp = await Axios.get('https://my-json-server.typicode.com/typicode/demo/comments');
-                    // console.log(resp.data[0].body);
+                    const resp = await Axios.get('http://my-json-server.typicode.com/shridharkalagi/vodqa-2019/workshops');
+                    console.log(resp.data[0]);
 
                     this.setState(() => ({
-                        data: resp.data[0].body
+                        data: resp.data[0].name
                     }));
                 }
-                }>Get the Schedule</button>
+                }>Get the Current Agenda</button>
 
                 <h4>{this.state.data}</h4>
             </div>
